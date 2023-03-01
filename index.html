@@ -27,6 +27,16 @@
       <span>ios: </span>
       <span id="ios">444</span>
     </div>
+    <hr>
+    <div>
+      <span>isUiWevView: </span>
+      <span id="isUiwebview">555</span>
+    </div>
+    <hr>
+    <div>
+      <span>isSafariOrUiwebview: </span>
+      <span id="isUiwebview2">555</span>
+    </div>
 
     <script>
       (function () {
@@ -35,17 +45,23 @@
         const safari = /safari/.test(userAgent);
         const ios = /iphone|ipod|ipad/.test(userAgent);
 
-        // console.log(userAgent);
-
         const standaloneEl = document.querySelector("#standalone");
         const userAgentEl = document.querySelector("#userAgent");
         const safariEl = document.querySelector("#safari");
         const iosEl = document.querySelector("#ios");
+        const uiWebViewEl = document.querySelector('#isUiwebview');
+        const uiWebViewEl2 = document.querySelector('#isUiwebview2');
 
         standaloneEl.innerHTML = standalone;
         userAgentEl.innerHTML = userAgent;
         safariEl.innerHTML = safari;
         iosEl.innerHTML = ios;
+
+        const isUiwebview = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+        const isSafariOrUiwebview = /(iPhone|iPod|iPad).*AppleWebKit/i.test(navigator.userAgent);
+
+        uiWebViewEl.innerHTML = isUiwebview;
+        uiWebViewEl2.innerHTML = isSafariOrUiwebview;
       })();
     </script>
   </body>
