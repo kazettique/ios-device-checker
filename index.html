@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="baru belajar html"
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <div>
+      <span>standalone: </span>
+      <span id="standalone">111</span>
+    </div>
+    <hr />
+    <div>
+      <span>userAgent: </span>
+      <span id="userAgent">222</span>
+    </div>
+    <hr />
+    <div>
+      <span>safari: </span>
+      <span id="safari">333</span>
+    </div>
+    <hr />
+    <div>
+      <span>ios: </span>
+      <span id="ios">444</span>
+    </div>
+
+    <script>
+      (function () {
+        const standalone = window.navigator.standalone;
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        const safari = /safari/.test(userAgent);
+        const ios = /iphone|ipod|ipad/.test(userAgent);
+
+        // console.log(userAgent);
+
+        const standaloneEl = document.querySelector("#standalone");
+        const userAgentEl = document.querySelector("#userAgent");
+        const safariEl = document.querySelector("#safari");
+        const iosEl = document.querySelector("#ios");
+
+        standaloneEl.innerHTML = standalone;
+        userAgentEl.innerHTML = userAgent;
+        safariEl.innerHTML = safari;
+        iosEl.innerHTML = ios;
+      })();
+    </script>
+  </body>
+</html>
